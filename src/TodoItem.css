@@ -1,0 +1,18 @@
+
+.Todo-Area ul
+{
+    list-style: none;
+    
+}
+.Todo-Area ul li
+{
+    display: flex;
+    background-color: white;
+}
+.Todo-Area ul li p
+{
+    padding-left:10px;
+    font-size: 20px;
+    font-family: "Poppins";
+    color:black;
+}
