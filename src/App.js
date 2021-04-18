@@ -1,14 +1,12 @@
 import { Component } from 'react';
 import './App.css';
 import TodoItem from './TodoItem'
-
-
 class App extends Component {
- constructor()
+ constructor(props)
  {
-   super()
+   super(props)
    this.state={
-     todotext: []
+     items: []
    }
   
    this.addItem=this.addItem.bind(this)
@@ -16,18 +14,20 @@ class App extends Component {
  }
  addItem(event)
  {
-   let newtext;
+  
    if(this._inputElement.value!=="")
    {
-     newtext=this._inputElement.value;
-   
-   this.setState(prevState=>{
-     return(
-       {
-         todotext:prevState.todotext.concat(newtext)
+     var newItem={
+      text:this._inputElement.value,
+      key:Date.now()
+     }
+     this.setState((prevState)=>{
+       return{
+         items:prevState.items.concat(newItem)
        }
-     )
-   })
+     })
+
+  
    this._inputElement.value = "";
   }
    event.preventDefault();
@@ -35,23 +35,22 @@ class App extends Component {
   render(){
     return (
       <div className="App">
+        <div className="first">
         <header className="App-header">
           Todo-List
     </header>   
          <form onSubmit={this.addItem}   className="Input-todo">
-         <input className="todo-input" type="text" ref={(a) => this._inputElement = a}   onChange={this.change} placeholder="Enter your Todos here" ></input>
-         <button className="todo-btn"  onClick={this.clickHandler} type="submit">Add</button>
+         <input className="todo-input" type="text"  ref={(a) => this._inputElement = a}  placeholder="Enter your Todos here" ></input>
+         <button className="todo-btn" type="submit">Add</button>
           
          </form>
-
-          
-        <div className="display-todo">
-         <TodoItem todos={this.state.todotext}/>
-        </div>
+         </div>
+         <TodoItem entries={this.state.items}/>
+        
       </div>
     );
   }
-  inputtxt=document.querySelector('todo-input')
+  
  
 }
 

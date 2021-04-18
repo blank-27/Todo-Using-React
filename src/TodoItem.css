@@ -1,18 +1,22 @@
-
-.Todo-Area ul
+.display-lists
 {
-    list-style: none;
+    margin-left:40rem;
+    padding-top:10rem;
     
+
 }
-.Todo-Area ul li
+.list-item
 {
     display: flex;
-    background-color: white;
 }
-.Todo-Area ul li p
+ input
 {
-    padding-left:10px;
-    font-size: 20px;
-    font-family: "Poppins";
-    color:black;
+    margin-top:10px;
+    height: 17px;
+    width: 17px;
+}
+.list-item p
+{
+    padding-left:20px;
+    font-size: 27px;
 }
